@@ -48,6 +48,20 @@ trait VolumeableTrait
         $this->$volumeColumnName = empty($list) ? null : serialize($list);
     }
 
+    /**
+     * Get all entries (array)
+     */
+    public function getEntries()
+    {
+        $volumeColumnName = $this->determineVolumeColumnName();
+
+        $origin = $this->$volumeColumnName;
+
+        $list = ($origin === null) ? [] : unserialize($this->$volumeColumnName);
+
+        return $list;
+    }
+
     /*
      * Determine the column name of the volume column.
      */

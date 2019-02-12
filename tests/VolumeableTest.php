@@ -136,4 +136,24 @@ class VolumeableTest extends TestCase
 
         /** assert */
     }
+
+    /** @test */
+    public function testGetEntries()
+    {
+        /** arrange */
+        $dummy = Dummy::find(1);
+        $attachments = Attachment::all();
+        $expected = [
+            0 => $attachments->find(1)->id,
+            1 => $attachments->find(2)->id
+        ];
+
+        /** act */
+        $dummy->insertEntry(0, $attachments->find(1)->id);
+        $dummy->insertEntry(1, $attachments->find(2)->id);
+        $result = $dummy->getEntries();
+
+        /** assert */
+        $this->assertEquals($expected, $result);
+    }
 }

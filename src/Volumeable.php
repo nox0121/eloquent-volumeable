@@ -13,4 +13,9 @@ interface Volumeable
      * Delete an entry by a specific index
      */
     public function deleteEntry($index);
+
+    /**
+     * Get all entries (array)
+     */
+    public function getEntries();
 }
