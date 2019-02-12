@@ -17,6 +17,12 @@ composer require nox0121/eloquent-volumeable
 
 ## Usage
 
+Step 1: Add this line to migration file
+
+`$table->text('volume_column')->nullable();`
+
+Step 2: Add trait to your model
+
 ``` php
 use Nox0121\EloquentVolumeable\Volumeable;
 use Nox0121\EloquentVolumeable\VolumeableTrait;
