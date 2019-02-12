@@ -13,6 +13,19 @@ composer require nox0121/eloquent-volumeable
 ## Usage
 
 ``` php
+use Nox0121\EloquentVolumeable\Volumeable;
+use Nox0121\EloquentVolumeable\VolumeableTrait;
+
+class MyModel extends Eloquent implements Volumeable
+{
+    use VolumeableTrait;
+
+    public $volumeable = [
+        'volume_column_name' => 'volume_column'
+    ];
+
+    ...
+}
 ```
 
 ### Testing
